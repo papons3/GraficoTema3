@@ -29,5 +29,10 @@ df$date <- as.Date(df$date, format = "%Y-%m-%d") #Establecemos la fecha en forma
 #Se nos pide que este gráfico está compuesto por datos hasta la fecha actual y por un grupo de países, establecemos los países que buscamos en la variable 'paises'.
 paises <- c("Canada","France","Germany","Italy","Japan","Spain","United Kingdom","United States")
 
+#Filtramos nuestro conjunto de datos por los países establecidos mediante la función filter()
+df_filtrado <- df %>%
+  filter(location %in% paises)
+
+df_filtrado$new_deaths_smoothed_per_million[is.na(df_filtrado$new_deaths_smoothed_per_million)] <- 0
 ```
 
